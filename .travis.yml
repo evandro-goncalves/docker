@@ -1,0 +1,9 @@
+sudo: 'required'
+services:
+  - 'docker'
+
+before_install:
+  - 'docker build -f Dockerfile.dev -t evandrogoncalves/docker .'
+
+script:
+  - 'docker run evandrogoncalves/docker npm run test -- --coverage'
